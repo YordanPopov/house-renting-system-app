@@ -9,7 +9,7 @@ namespace HouseRentingSystem.Services.Data.Entities
 
         [Required]
         [MaxLength(NameMaxLength)]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public IEnumerable<House> Houses { get; init; } = new List<House>();
     }

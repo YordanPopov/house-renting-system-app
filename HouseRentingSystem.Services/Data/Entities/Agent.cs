@@ -11,11 +11,11 @@ namespace HouseRentingSystem.Services.Data.Entities
 
         [Required]
         [MaxLength(PhoneNumberMaxLength)]
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
         [Required]
-        public string UserId { get; set; }
+        public string? UserId { get; set; }
 
-        public User User { get; init; }
+        public User? User { get; init; }
     }
 }

@@ -11,31 +11,31 @@ namespace HouseRentingSystem.Services.Data.Entities
 
         [Required]
         [MaxLength(TitleMaxLength)]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [Required]
         [MaxLength(AddressMaxLength)]
-        public string Address { get; set; }
+        public string? Address { get; set; }
 
         [Required]
         [MaxLength(DescriptionMaxLength)]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Required]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         [Column(TypeName = "decimal(12,3)")]
         public decimal PricePerMonth { get; set; }
 
         public int CategoryId { get; set; }
 
-        public Category Category { get; init; }
+        public Category? Category { get; init; }
 
         public int AgentId { get; set; }
 
-        public Agent Agent { get; init; }
+        public Agent? Agent { get; init; }
 
         public string? RenterId { get; set; }
-        public User Renter { get; init; }
+        public User? Renter { get; init; }
     }
 }
