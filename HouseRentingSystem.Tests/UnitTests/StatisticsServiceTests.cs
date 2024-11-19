@@ -21,15 +21,15 @@ namespace HouseRentingSystem.Tests.UnitTests
             var result = this.statisticsService.Total();
 
             // Assert the returned result is not null
-            Assert.IsNotNull(result);
+            Assert.That(result, Is.Not.Null);
 
             // Assert the returned houses' count is correct
             var housesCount = this.data.Houses.Count();
-            Assert.AreEqual(housesCount, result.TotalHouses);
+            Assert.That(result.TotalHouses, Is.EqualTo(housesCount));
 
             // Assert the returned rents' count is correct
             var rentsCount = this.data.Houses.Where(h => h.RenterId != null).Count();
-            Assert.AreEqual(rentsCount, result.TotalRents);
+            Assert.That(result.TotalRents, Is.EqualTo(rentsCount));
         }
     }
 }

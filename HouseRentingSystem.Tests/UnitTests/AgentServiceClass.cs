@@ -20,7 +20,8 @@ namespace HouseRentingSystem.Tests.UnitTests
             var resultAgentId = this.agentService.GetAgentId(this.Agent.UserId);
 
             // Assert a correct id is returned
-            Assert.AreEqual(this.Agent.Id, resultAgentId);
+            // Assert.AreEqual(this.Agent.Id, resultAgentId);
+            Assert.That(resultAgentId, Is.EqualTo(this.Agent.Id));
         }
 
        [Test]
@@ -61,14 +62,17 @@ namespace HouseRentingSystem.Tests.UnitTests
 
             // Assert the agents' count has increased by 1
             var agentsCountAfter = this.data.Agents.Count();
-            Assert.AreEqual(agentsCountBefore + 1, agentsCountAfter);
+            // Assert.AreEqual(agentsCountBefore + 1, agentsCountAfter);
+            Assert.That(agentsCountAfter, Is.EqualTo(agentsCountBefore + 1));
 
             // Assert a new agent was created in the db with correct data
             var newAgentId = this.agentService.GetAgentId(this.Agent.UserId);
             var newAgentInDb = this.data.Agents.Find(newAgentId);
             Assert.IsNotNull(newAgentInDb);
-            Assert.AreEqual(this.Agent.UserId, newAgentInDb.UserId);
-            Assert.AreEqual(this.Agent.PhoneNumber, newAgentInDb.PhoneNumber);
+            // Assert.AreEqual(this.Agent.UserId, newAgentInDb.UserId);
+            Assert.That(newAgentInDb.UserId, Is.EqualTo(this.Agent.UserId));
+            // Assert.AreEqual(this.Agent.PhoneNumber, newAgentInDb.PhoneNumber);
+            Assert.That(newAgentInDb.PhoneNumber, Is.EqualTo(this.Agent.PhoneNumber));
         }
     }
 }
